@@ -1,0 +1,6 @@
+{
+  "name": "Smart Attendance Predictor",
+  "description": "Predictive attendance management tool helping students calculate safe skips, analyze trends, and project semester-end attendance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

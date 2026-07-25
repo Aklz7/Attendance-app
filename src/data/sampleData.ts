@@ -1,0 +1,172 @@
+import { Subject } from '../types';
+
+// Helper to generate past dates relative to today
+function getDateDaysAgo(daysAgo: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().split('T')[0];
+}
+
+export const initialSubjects: Subject[] = [
+  {
+    id: 'sub-dsa',
+    name: 'Data Structures & Algorithms',
+    code: 'CS201',
+    color: '#3b82f6', // blue
+    minAttendancePct: 75,
+    totalClassesInSemester: 45,
+    scheduleDays: ['Mon', 'Wed', 'Fri'],
+    targetBuffer: 0,
+    history: [
+      { id: 'dsa-1', date: getDateDaysAgo(50), status: 'present' },
+      { id: 'dsa-2', date: getDateDaysAgo(48), status: 'present' },
+      { id: 'dsa-3', date: getDateDaysAgo(46), status: 'present' },
+      { id: 'dsa-4', date: getDateDaysAgo(43), status: 'present' },
+      { id: 'dsa-5', date: getDateDaysAgo(41), status: 'absent', notes: 'Feeling unwell' },
+      { id: 'dsa-6', date: getDateDaysAgo(39), status: 'present' },
+      { id: 'dsa-7', date: getDateDaysAgo(36), status: 'present' },
+      { id: 'dsa-8', date: getDateDaysAgo(34), status: 'present' },
+      { id: 'dsa-9', date: getDateDaysAgo(32), status: 'present' },
+      { id: 'dsa-10', date: getDateDaysAgo(29), status: 'cancelled', notes: 'Prof on leave' },
+      { id: 'dsa-11', date: getDateDaysAgo(27), status: 'present' },
+      { id: 'dsa-12', date: getDateDaysAgo(25), status: 'present' },
+      { id: 'dsa-13', date: getDateDaysAgo(22), status: 'present' },
+      { id: 'dsa-14', date: getDateDaysAgo(20), status: 'absent', notes: 'Overslept' },
+      { id: 'dsa-15', date: getDateDaysAgo(18), status: 'present' },
+      { id: 'dsa-16', date: getDateDaysAgo(15), status: 'present' },
+      { id: 'dsa-17', date: getDateDaysAgo(13), status: 'present' },
+      { id: 'dsa-18', date: getDateDaysAgo(11), status: 'present' },
+      { id: 'dsa-19', date: getDateDaysAgo(8), status: 'present' },
+      { id: 'dsa-20', date: getDateDaysAgo(6), status: 'absent', notes: 'Midterm prep' },
+      { id: 'dsa-21', date: getDateDaysAgo(4), status: 'present' },
+      { id: 'dsa-22', date: getDateDaysAgo(1), status: 'present' },
+    ]
+  },
+  {
+    id: 'sub-dbms',
+    name: 'Database Management Systems',
+    code: 'CS204',
+    color: '#ef4444', // red/danger
+    minAttendancePct: 75,
+    totalClassesInSemester: 40,
+    scheduleDays: ['Tue', 'Thu', 'Fri'],
+    targetBuffer: 0,
+    history: [
+      { id: 'db-1', date: getDateDaysAgo(49), status: 'present' },
+      { id: 'db-2', date: getDateDaysAgo(47), status: 'present' },
+      { id: 'db-3', date: getDateDaysAgo(46), status: 'absent', notes: 'Friday early leave' },
+      { id: 'db-4', date: getDateDaysAgo(42), status: 'present' },
+      { id: 'db-5', date: getDateDaysAgo(40), status: 'absent', notes: 'Late bus' },
+      { id: 'db-6', date: getDateDaysAgo(39), status: 'absent', notes: 'Friday trip' },
+      { id: 'db-7', date: getDateDaysAgo(35), status: 'present' },
+      { id: 'db-8', date: getDateDaysAgo(33), status: 'present' },
+      { id: 'db-9', date: getDateDaysAgo(32), status: 'absent', notes: 'Friday skip' },
+      { id: 'db-10', date: getDateDaysAgo(28), status: 'present' },
+      { id: 'db-11', date: getDateDaysAgo(26), status: 'present' },
+      { id: 'db-12', date: getDateDaysAgo(25), status: 'present' },
+      { id: 'db-13', date: getDateDaysAgo(21), status: 'absent', notes: 'Dentist appt' },
+      { id: 'db-14', date: getDateDaysAgo(19), status: 'present' },
+      { id: 'db-15', date: getDateDaysAgo(18), status: 'absent', notes: 'Friday headache' },
+      { id: 'db-16', date: getDateDaysAgo(14), status: 'present' },
+      { id: 'db-17', date: getDateDaysAgo(12), status: 'absent', notes: 'Project deadline' },
+      { id: 'db-18', date: getDateDaysAgo(11), status: 'present' },
+      { id: 'db-19', date: getDateDaysAgo(7), status: 'present' },
+      { id: 'db-20', date: getDateDaysAgo(5), status: 'absent', notes: 'Slept in' },
+      { id: 'db-21', date: getDateDaysAgo(4), status: 'present' },
+      { id: 'db-22', date: getDateDaysAgo(2), status: 'present' },
+    ]
+  },
+  {
+    id: 'sub-os',
+    name: 'Operating Systems',
+    code: 'CS202',
+    color: '#10b981', // emerald
+    minAttendancePct: 75,
+    totalClassesInSemester: 44,
+    scheduleDays: ['Mon', 'Tue', 'Thu'],
+    targetBuffer: 0,
+    history: [
+      { id: 'os-1', date: getDateDaysAgo(50), status: 'present' },
+      { id: 'os-2', date: getDateDaysAgo(49), status: 'present' },
+      { id: 'os-3', date: getDateDaysAgo(47), status: 'present' },
+      { id: 'os-4', date: getDateDaysAgo(43), status: 'present' },
+      { id: 'os-5', date: getDateDaysAgo(42), status: 'present' },
+      { id: 'os-6', date: getDateDaysAgo(40), status: 'present' },
+      { id: 'os-7', date: getDateDaysAgo(36), status: 'present' },
+      { id: 'os-8', date: getDateDaysAgo(35), status: 'absent', notes: 'Traffic' },
+      { id: 'os-9', date: getDateDaysAgo(33), status: 'present' },
+      { id: 'os-10', date: getDateDaysAgo(29), status: 'present' },
+      { id: 'os-11', date: getDateDaysAgo(28), status: 'present' },
+      { id: 'os-12', date: getDateDaysAgo(26), status: 'present' },
+      { id: 'os-13', date: getDateDaysAgo(22), status: 'present' },
+      { id: 'os-14', date: getDateDaysAgo(21), status: 'present' },
+      { id: 'os-15', date: getDateDaysAgo(19), status: 'present' },
+      { id: 'os-16', date: getDateDaysAgo(15), status: 'present' },
+      { id: 'os-17', date: getDateDaysAgo(14), status: 'absent', notes: 'Tech fest event' },
+      { id: 'os-18', date: getDateDaysAgo(12), status: 'present' },
+      { id: 'os-19', date: getDateDaysAgo(8), status: 'present' },
+      { id: 'os-20', date: getDateDaysAgo(7), status: 'present' },
+      { id: 'os-21', date: getDateDaysAgo(5), status: 'present' },
+      { id: 'os-22', date: getDateDaysAgo(1), status: 'present' },
+    ]
+  },
+  {
+    id: 'sub-la',
+    name: 'Linear Algebra & Probability',
+    code: 'MA201',
+    color: '#8b5cf6', // purple
+    minAttendancePct: 80, // higher minimum!
+    totalClassesInSemester: 42,
+    scheduleDays: ['Mon', 'Wed', 'Thu'],
+    targetBuffer: 0,
+    history: [
+      { id: 'la-1', date: getDateDaysAgo(50), status: 'present' },
+      { id: 'la-2', date: getDateDaysAgo(48), status: 'present' },
+      { id: 'la-3', date: getDateDaysAgo(47), status: 'present' },
+      { id: 'la-4', date: getDateDaysAgo(43), status: 'present' },
+      { id: 'la-5', date: getDateDaysAgo(41), status: 'present' },
+      { id: 'la-6', date: getDateDaysAgo(40), status: 'absent', notes: 'Doctor visit' },
+      { id: 'la-7', date: getDateDaysAgo(36), status: 'present' },
+      { id: 'la-8', date: getDateDaysAgo(34), status: 'present' },
+      { id: 'la-9', date: getDateDaysAgo(33), status: 'present' },
+      { id: 'la-10', date: getDateDaysAgo(29), status: 'present' },
+      { id: 'la-11', date: getDateDaysAgo(27), status: 'present' },
+      { id: 'la-12', date: getDateDaysAgo(26), status: 'present' },
+      { id: 'la-13', date: getDateDaysAgo(22), status: 'present' },
+      { id: 'la-14', date: getDateDaysAgo(20), status: 'absent', notes: 'Rain storm' },
+      { id: 'la-15', date: getDateDaysAgo(19), status: 'present' },
+      { id: 'la-16', date: getDateDaysAgo(15), status: 'present' },
+      { id: 'la-17', date: getDateDaysAgo(13), status: 'present' },
+      { id: 'la-18', date: getDateDaysAgo(12), status: 'present' },
+      { id: 'la-19', date: getDateDaysAgo(8), status: 'present' },
+      { id: 'la-20', date: getDateDaysAgo(6), status: 'present' },
+    ]
+  },
+  {
+    id: 'sub-web',
+    name: 'Web Engineering & React',
+    code: 'CS208',
+    color: '#f59e0b', // amber
+    minAttendancePct: 75,
+    totalClassesInSemester: 36,
+    scheduleDays: ['Tue', 'Thu'],
+    targetBuffer: 0,
+    history: [
+      { id: 'web-1', date: getDateDaysAgo(49), status: 'present' },
+      { id: 'web-2', date: getDateDaysAgo(47), status: 'present' },
+      { id: 'web-3', date: getDateDaysAgo(42), status: 'present' },
+      { id: 'web-4', date: getDateDaysAgo(40), status: 'present' },
+      { id: 'web-5', date: getDateDaysAgo(35), status: 'present' },
+      { id: 'web-6', date: getDateDaysAgo(33), status: 'absent', notes: 'Hackathon' },
+      { id: 'web-7', date: getDateDaysAgo(28), status: 'present' },
+      { id: 'web-8', date: getDateDaysAgo(26), status: 'present' },
+      { id: 'web-9', date: getDateDaysAgo(21), status: 'present' },
+      { id: 'web-10', date: getDateDaysAgo(19), status: 'present' },
+      { id: 'web-11', date: getDateDaysAgo(14), status: 'present' },
+      { id: 'web-12', date: getDateDaysAgo(12), status: 'present' },
+      { id: 'web-13', date: getDateDaysAgo(7), status: 'present' },
+      { id: 'web-14', date: getDateDaysAgo(5), status: 'absent', notes: 'Unscheduled trip' },
+      { id: 'web-15', date: getDateDaysAgo(2), status: 'present' },
+    ]
+  }
+];
